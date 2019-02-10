@@ -33,22 +33,13 @@ h1, h2, h3 {
     border: none;
 }
 
-.navbar-default .navbar-brand {
-    color: black;
-}
-
-.navbar-default .navbar-brand:hover {
-    color:gray;
-    opacity: 0.75;
-}
-
+.navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
-    color:black;
-}
-
-.navbar-default .navbar-nav > li > a:hover {
-    color:gray;
-    opacity: 0.75;
+    color: black;
+    &:hover {
+        color:gray;
+        opacity: 0.75;
+    }
 }
 
 .home-callout {
