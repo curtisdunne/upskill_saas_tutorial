@@ -7,6 +7,8 @@ class User < ApplicationRecord
   belongs_to :plan 
   
   attr_accessor :stripe_card_token
+  # If Pro user passes validation(email, password, etc), then call Stripe and tell
+  # Stripe to setup a monthly subscription upon charging the customer credit card.
   def save_with_subscription 
     if valid?
       puts("Stripe Token = #{ @stripe_card_token }")
