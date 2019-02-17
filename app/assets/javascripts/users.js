@@ -2,7 +2,7 @@
 /* global Stripe */
 
 // Document ready function
-$(document).on('turbolinks: load', function(){
+$(document).on('turbolinks:load', function(){
     var theForm = $('#pro-form');
     var submitBtn = $('#form-signup-btn');
     
@@ -18,11 +18,11 @@ $(document).on('turbolinks: load', function(){
         submitBtn.val("Processing....").prop('disabled', true);
         
         // collect credit card fields
-        var ccNum = $('#card_number').val();     
-        var cvcNum = $('#card_code').val();
-        var expMonth = $('#card_month').val();
-        var expYear = $('#card_year').val();
-        
+        var ccNum = $('#card_number').val(),
+            cvcNum = $('#card_code').val(),
+            expMonth = $('#card_month').val(),
+            expYear = $('#card_year').val();
+
         // use Stripe JS library to check for card errors
         var error = false;
         
