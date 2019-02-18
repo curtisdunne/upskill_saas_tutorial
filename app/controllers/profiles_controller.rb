@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
         @profile = Profile.new
     end
     
-    # POST request to /profiles
+    # POST request to /users/:user_id/profile
     def create
         @user = User.find(params[:user_id])
         
@@ -25,13 +25,14 @@ class ProfilesController < ApplicationController
             # and redirect to the new action.
             flash[:danger] = @contact.errors.full_messages.join(": ")
             # stays on Profile entry form with fields populated with entered values 
+            # does not make another request.
             render action: :new
         end
     end
     
     private 
         # To collect data from form, we need to use strong parameters and 
-        # whitelist the form fields we want to save (security feature)
+        # whitelist the form fields we want to save (security feature, strong parameters)
         def profile_params
             params.require(:profile).permit(:first_name, :last_name, :job_title, :phone_number, :contact_email, :description)
         end
