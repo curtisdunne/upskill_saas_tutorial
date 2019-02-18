@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
         if @profile.save
             flash[:success] = "Profile Saved."
 
-            redirect_to root_path
+            redirect_to user_path(params[:user_id])
         else 
             # if Profile object doesn't save, store errors in Flash hash
             # and redirect to the new action.
