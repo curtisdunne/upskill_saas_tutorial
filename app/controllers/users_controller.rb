@@ -7,7 +7,8 @@ class UsersController < ApplicationController
    end
    
    def index
-      
+      # the includes creates just one query...saves time and response.
+      @users = User.includes(:profile)
    end
    
 end
