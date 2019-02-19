@@ -30,6 +30,12 @@ class ProfilesController < ApplicationController
         end
     end
     
+    # GET to /users/:user_id/profile/edit
+    def edit 
+        @user = User.find(params[:user_id])
+        @profile = @user.profile
+    end
+    
     private 
         # To collect data from form, we need to use strong parameters and 
         # whitelist the form fields we want to save (security feature, strong parameters)
