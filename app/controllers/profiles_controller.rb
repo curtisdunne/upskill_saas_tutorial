@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
         if @profile.save
             flash[:success] = "Profile Saved."
 
-            redirect_to user_path(params[:user_id])
+            redirect_to user_path(id: params[:user_id])
         else 
             # if Profile object doesn't save, store errors in Flash hash
             # and redirect to the new action.
@@ -34,6 +34,21 @@ class ProfilesController < ApplicationController
     def edit 
         @user = User.find(params[:user_id])
         @profile = @user.profile
+    end
+    
+    # PUT to /users/:user_id/profile
+    def update
+        #  retrieve the user from database
+        @user = User.find(params[:user_id])
+        # retrieve the users profile
+        @profile = @user.profile
+        # mass assign edited profile attributes
+        if @profile.update_attributes(profile_params)
+            flash[:success]
+            redirect_to user_path(id: @user.id)
+        else 
+            render action: edit
+        end
     end
     
     private 
