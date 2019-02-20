@@ -25,3 +25,4 @@
 
 # Ignore .env file for local dev
 .env
+.old_env

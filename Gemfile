@@ -45,11 +45,12 @@ gem 'stripe', '1.48.0'
 gem 'figaro', '1.1.1'
 
 # use PaperClip for image upload
-gem 'paperclip', '4.3.6'
+# gem 'paperclip', '4.3.7'
+gem 'paperclip', '~> 5.1'
 
 # needed to save images to S2 since Heroku won't allow users to upload images
 # and we allow users to upload an avatar in our app
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk', '2.3.0'
 
 # this is needed in order for the .env file to be loaded for local development
 group :development, :test do
