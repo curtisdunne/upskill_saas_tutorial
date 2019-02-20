@@ -47,6 +47,15 @@ gem 'figaro', '1.1.1'
 # use PaperClip for image upload
 gem 'paperclip', '4.3.6'
 
+# needed to save images to S2 since Heroku won't allow users to upload images
+# and we allow users to upload an avatar in our app
+gem 'aws-sdk', '~> 2.3'
+
+# this is needed in order for the .env file to be loaded for local development
+group :development, :test do
+  gem 'dotenv-rails'
+end
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.3.13'
